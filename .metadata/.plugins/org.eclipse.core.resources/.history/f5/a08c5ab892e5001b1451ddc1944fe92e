@@ -1,0 +1,45 @@
+package br.com.sicredi.voto.app.services;
+
+import java.time.Instant;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.sicredi.voto.app.dtos.PautaDTO;
+import br.com.sicredi.voto.app.entities.Voto;
+import br.com.sicredi.voto.app.entities.enums.Opcao;
+import br.com.sicredi.voto.app.exceptions.ObjetoNaoEncontradoException;
+import br.com.sicredi.voto.app.repositories.VotoRepository;
+import br.com.sicredi.voto.infra.proxy.feignclients.PautaFeignClient;
+
+@Service
+public class VotoService {
+	
+	@Autowired
+	private PautaFeignClient pautaFeignClient;
+
+	@Autowired
+	private VotoRepository votoRepository;
+
+	public Voto inserirVoto(String cpfAssociado, Long pautaId, String opcaoEscolhida) {
+		
+		//- Validar se a pauta existe
+		Optional<PautaDTO> pautaDto = Optional.of(pautaFeignClient.findById(pautaId).getBody());
+		pautaDto.orElseThrow(() -> new ObjetoNaoEncontradoException("Objeto não encontrado! Id: " + pautaId + ", Tipo: " + PautaDTO.class.getName()));
+		
+		
+		// - TODO localizar a sessao atraves do pautaid e validar se sessao esta aberta para votar na pauta
+		
+		
+		// - TODO validar se o Associado existe
+		
+		// - TODO se o cpf ja votou, NAO pode votar mais nesta pauta
+		// - TODO validar se associado tem permissão para votar nesta pauta
+
+		Voto entity = new Voto(null, Instant.now(), cpfAssociado, pautaId, Opcao.valueOf(opcaoEscolhida.toUpperCase()));
+		entity = votoRepository.save(entity);
+		return entity;
+	}
+
+}

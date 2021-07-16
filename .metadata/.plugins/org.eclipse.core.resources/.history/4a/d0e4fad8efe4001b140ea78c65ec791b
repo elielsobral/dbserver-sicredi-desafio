@@ -1,0 +1,5 @@
+package br.com.sicredi.associado.dtos;
+
+public class AssociadoDTO {
+
+}

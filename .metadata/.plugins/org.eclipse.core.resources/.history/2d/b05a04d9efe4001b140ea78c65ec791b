@@ -1,0 +1,14 @@
+package br.com.sicredi.associado.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.sicredi.associado.repositories.AssociadoRepository;
+
+@Service
+public class AssociadoService {
+
+	@Autowired
+	private AssociadoRepository associadoRepository;
+
+}

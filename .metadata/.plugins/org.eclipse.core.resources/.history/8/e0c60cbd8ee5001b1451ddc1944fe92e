@@ -1,0 +1,29 @@
+package br.com.sicredi.voto.app.services;
+
+import java.time.Instant;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.sicredi.voto.app.entities.Voto;
+import br.com.sicredi.voto.app.entities.enums.Opcao;
+import br.com.sicredi.voto.app.repositories.VotoRepository;
+
+@Service
+public class VotoService {
+
+	@Autowired
+	private VotoRepository votoRepository;
+
+	public Voto inserirVoto(String cpfAssociado, Long pautaId, String opcaoEscolhida) {
+		// - TODO validar se sessao esta aberta para votar nesta pauta
+
+		// - TODO se o cpf ja votou, NAO pode votar mais nesta pauta
+		// - TODO validar se associado tem permissão para votar nesta pauta
+
+		Voto entity = new Voto(null, Instant.now(), cpfAssociado, pautaId, Opcao.valueOf(opcaoEscolhida.toUpperCase()));
+		entity = votoRepository.save(entity);
+		return entity;
+	}
+
+}

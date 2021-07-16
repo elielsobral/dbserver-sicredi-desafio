@@ -1,0 +1,5 @@
+package br.com.sicredi.associado.services;
+
+public class AssociadoService {
+
+}

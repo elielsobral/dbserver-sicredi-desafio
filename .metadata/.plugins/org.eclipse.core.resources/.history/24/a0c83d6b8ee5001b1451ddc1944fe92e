@@ -1,0 +1,14 @@
+package br.com.sicredi.voto.app.exceptions;
+
+public class SessaoEncerradaException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+
+	public SessaoEncerradaException(String msg) {
+		super(msg);
+	}
+
+	public SessaoEncerradaException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+
+}

@@ -1,0 +1,34 @@
+package br.com.sicredi.sessao.app.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.sicredi.pauta.app.entities.Pauta;
+import br.com.sicredi.sessao.app.dtos.SessaoDTO;
+import br.com.sicredi.sessao.app.entities.Sessao;
+import br.com.sicredi.sessao.app.exceptions.ObjetoNaoEncontradoException;
+import br.com.sicredi.sessao.app.repositories.SessaoRepository;
+
+@Service
+public class SessaoService {
+
+	@Autowired
+	private SessaoRepository sessaoRepository;
+
+	public SessaoDTO insert(SessaoDTO objDto) {
+		Sessao obj = new Sessao(null, objDto.getNome());
+		obj = sessaoRepository.save(obj);
+		objDto.setId(obj.getId());
+		return objDto;
+	}
+
+	public SessaoDTO findById(Long id) {
+		Optional<Pauta> obj = sessaoRepository.findById(id);
+		obj.orElseThrow(() -> new ObjetoNaoEncontradoException("Objeto não encontrado! Id: " + id + ", Tipo: " + Pauta.class.getName()));
+		SessaoDTO objDto = new SessaoDTO(obj.get().getId(), obj.get().getNome());
+		return objDto;
+	}
+
+}

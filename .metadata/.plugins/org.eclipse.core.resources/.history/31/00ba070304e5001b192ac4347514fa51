@@ -1,0 +1,5 @@
+package br.com.sicredi.sessao.app.dtos;
+
+public class SessaoDTO {
+
+}

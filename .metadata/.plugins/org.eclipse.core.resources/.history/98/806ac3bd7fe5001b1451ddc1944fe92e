@@ -1,0 +1,5 @@
+package br.com.sicredi.voto.app.entities;
+
+public class Voto {
+
+}

@@ -1,0 +1,52 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+server:
+  port: ${PORT:0}
+
+spring:
+  application:
+    name: sc-sessao
+    
+  datasource:
+    url: jdbc:h2:./data/${spring.application.name}_${random.value};DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+        
+  sql:
+    init:
+      platform: h2
+      
+sessao:
+  duracao:
+    default: 60
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

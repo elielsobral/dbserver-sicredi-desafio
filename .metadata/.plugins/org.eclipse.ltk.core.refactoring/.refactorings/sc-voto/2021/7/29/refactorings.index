@@ -1,0 +1,21 @@
+1626338967024	Rename package 'br.com.sicredi.sessao.infra.config.exceptions'
+1626338997503	Rename package 'br.com.sicredi.sessao.infra.proxy.feignclients'
+1626339045306	Rename package 'br.com.sicredi.sessao.app.exceptions'
+1626339245696	Rename package 'br.com.sicredi.sessao.app.dtos'
+1626360196982	Rename package 'br.com.pronetdigital.sicredi.urna.votacao.entities.enums'
+1626363267289	Rename package 'br.com.pronetdigital.sicredi.urna.votacao.repositories'
+1626363348652	Copy compilation unit
+1626363361766	Rename type 'Voto'
+1626363826943	Rename package 'br.com.pronetdigital.sicredi.urna.votacao.controllers'
+1626363959051	Rename package 'br.com.pronetdigital.sicredi.urna.votacao.services'
+1626364716900	Copy compilation unit
+1626364839441	Copy compilation unit
+1626364884429	Copy compilation unit
+1626368541246	Rename type 'SessaoEncerradaException'
+1626371249237	Copy package
+1626378983938	Copy compilation unit
+1626380956335	Copy compilation unit
+1626390563440	Rename local variable 'votoOK'
+1626404340278	Rename local variable 'voto'
+1626404817780	Copy compilation unit
+1626406151653	Rename local variable 'votoDto'

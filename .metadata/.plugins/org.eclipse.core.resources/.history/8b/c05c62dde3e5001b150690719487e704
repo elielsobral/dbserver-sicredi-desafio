@@ -1,0 +1,13 @@
+package br.com.sicredi.voto.app.repositories;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.sicredi.voto.app.entities.Voto;
+
+public interface VotoRepository extends JpaRepository<Voto, Long> {
+
+	Optional<Voto> findByCpfAssociado(String cpfAssociado);
+
+}

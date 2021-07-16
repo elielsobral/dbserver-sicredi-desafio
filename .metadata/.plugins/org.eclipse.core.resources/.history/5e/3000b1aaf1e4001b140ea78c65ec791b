@@ -1,0 +1,23 @@
+package br.com.sicredi.associado.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.sicredi.associado.app.dtos.AssociadoDTO;
+import br.com.sicredi.associado.entities.Associado;
+import br.com.sicredi.associado.repositories.AssociadoRepository;
+
+@Service
+public class AssociadoService {
+
+	@Autowired
+	private AssociadoRepository associadoRepository;
+
+	public AssociadoDTO insert(AssociadoDTO objDto) {
+		Associado obj = new Associado(null, objDto.getNome(), objDto.getCpf());
+		obj = associadoRepository.save(obj);
+		objDto.setId(obj.getId());
+		return objDto;
+	}
+
+}
