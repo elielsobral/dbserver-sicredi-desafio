@@ -1,5 +1,0 @@
-package br.com.sicredi.pauta.app.repositories;
-
-public interface PautaRepository {
-
-}

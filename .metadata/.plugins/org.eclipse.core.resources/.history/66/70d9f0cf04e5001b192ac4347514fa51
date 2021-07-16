@@ -1,9 +1,0 @@
-package br.com.sicredi.sessao.app.repositories;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.sicredi.sessao.app.entities.Sessao;
-
-public interface SessaoRepository extends JpaRepository<Sessao, Long> {
-
-}

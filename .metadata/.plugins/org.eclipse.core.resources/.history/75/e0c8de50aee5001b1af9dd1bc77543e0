@@ -1,5 +1,0 @@
-package br.com.sicredi.voto.app.dtos;
-
-public class UserInfo {
-
-}
