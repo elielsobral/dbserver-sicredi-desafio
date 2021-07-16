@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "77918fed-94c6-45d1-9a22-a9e9b34f8c87",
+		"name": "Desafio SICREDI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Associado",
+			"item": [
+				{
+					"name": "Insert Associado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José\",\r\n    \"cpf\": \"58337385049\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/associados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"associados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Associado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/associados/v1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"associados",
+								"v1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pauta",
+			"item": [
+				{
+					"name": "Insert Pauta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Votação 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8011/pautas/v1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"pautas",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pauta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/sc-pauta/pautas/v1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"sc-pauta",
+								"pautas",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pauta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/sc-pauta/pautas/v1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"sc-pauta",
+								"pautas",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessao",
+			"item": [
+				{
+					"name": "Insert Sessão",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pautaId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8021/sessoes/v1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"sessoes",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Abrir Sessão Para Votação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/sessoes/v1/pauta/1/duracao/300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"sessoes",
+								"v1",
+								"pauta",
+								"1",
+								"duracao",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Sessao Por Pauta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/sessoes/v1/pauta/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"sessoes",
+								"v1",
+								"pauta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Voto",
+			"item": [
+				{
+					"name": "Inserir Voto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/sc-voto/votos/v1/user/58337385049/pauta/1/voto/sim",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"sc-voto",
+								"votos",
+								"v1",
+								"user",
+								"58337385049",
+								"pauta",
+								"1",
+								"voto",
+								"sim"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
